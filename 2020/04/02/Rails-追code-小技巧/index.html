@@ -101,10 +101,8 @@
       <p>是不是有時候覺得，幹這方法到底在哪裡？到底是幹嘛的？然後這個object到底有哪些方法可以用？滿頭問好？？？本人正是如此</p>
 <p>今天假設我們有一個 Cat class，裡面有兩個methods，當然可能更多。</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span></span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">run</span></span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">eat</span></span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-
 <p>那我們可以用 Cat.new.methods，在consolo裡面查這個class裡，到底有哪些方法</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Cat.new.methods</span><br><span class="line"> =&gt; [<span class="symbol">:run</span>, <span class="symbol">:eat</span>, <span class="symbol">:instance_variable_set</span>, <span class="symbol">:instance_variable_defined?</span>, <span class="symbol">:remove_instance_variable</span>, <span class="symbol">:instance_of?</span>, <span class="symbol">:kind_of?</span>, <span class="symbol">:is_a?</span>, <span class="symbol">:tap</span>, <span class="symbol">:instance_variable_get</span>, <span class="symbol">:public_methods</span>, <span class="symbol">:instance_variables</span>, <span class="symbol">:method</span>, <span class="symbol">:public_method</span>, <span class="symbol">:define_singleton_method</span>, <span class="symbol">:public_send</span>, <span class="symbol">:singleton_method</span>, <span class="symbol">:extend</span>, <span class="symbol">:pp</span>, <span class="symbol">:to_enum</span>, <span class="symbol">:enum_for</span>, <span class="symbol">:&lt;=&gt;</span>, <span class="symbol">:===</span>, <span class="symbol">:=~</span>, <span class="symbol">:</span>!~, <span class="symbol">:eql?</span>, <span class="symbol">:respond_to?</span>, <span class="symbol">:freeze</span>, <span class="symbol">:inspect</span>, <span class="symbol">:object_id</span>, <span class="symbol">:send</span>, <span class="symbol">:to_s</span>, <span class="symbol">:display</span>, <span class="symbol">:nil?</span>, <span class="symbol">:hash</span>, <span class="symbol">:class</span>, <span class="symbol">:singleton_class</span>, <span class="symbol">:clone</span>, <span class="symbol">:itself</span>, <span class="symbol">:dup</span>, <span class="symbol">:taint</span>, <span class="symbol">:yield_self</span>, <span class="symbol">:untaint</span>, <span class="symbol">:tainted?</span>, <span class="symbol">:untrusted?</span>, <span class="symbol">:untrust</span>, <span class="symbol">:frozen?</span>, <span class="symbol">:trust</span>, <span class="symbol">:methods</span>, <span class="symbol">:singleton_methods</span>, <span class="symbol">:protected_methods</span>, <span class="symbol">:private_methods</span>, <span class="symbol">:</span>!, <span class="symbol">:equal?</span>, <span class="symbol">:instance_eval</span>, <span class="symbol">:==</span>, <span class="symbol">:instance_exec</span>, <span class="symbol">:</span>!=, <span class="symbol">:__id__</span>, <span class="symbol">:__send__</span>]</span><br></pre></td></tr></table></figure>
-
 <p>有看到前面兩個method嗎？是我們自己定義的method，也看到了這個calss繼承的所有的method。</p>
 <p>那我只想看只定義在這個calss裡的method呢？</p>
 <p>可以用 Cat.new.methods - Object.new.methods</p>
@@ -113,7 +111,8 @@
 <p>這時候我們就可以用Rails 的小技巧</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cat = Cat.new </span><br><span class="line"></span><br><span class="line">cat.method(<span class="symbol">:run</span>)</span><br><span class="line"><span class="comment"># =&gt; #&lt;Method: cat#run&gt;</span></span><br><span class="line"></span><br><span class="line">cat.method(<span class="symbol">:run</span>).source_location</span><br><span class="line"><span class="comment"># =&gt; ["cat.rb", 1]</span></span><br></pre></td></tr></table></figure>
 <p>這樣追，一直追追追，追到天涯海角吧～～～</p>
-<p><a href="https://www.spreered.com/learn-rail-by-ruby/" target="_blank" rel="noopener">https://www.spreered.com/learn-rail-by-ruby/</a><br>本篇參考以上文章</p>
+<p><a href="https://www.spreered.com/learn-rail-by-ruby/" target="_blank" rel="noopener">https://www.spreered.com/learn-rail-by-ruby/</a><br>
+本篇參考以上文章</p>
 
       
       <!-- reward -->
@@ -134,6 +133,15 @@
   
   
   <nav class="article-nav">
+    
+      <a href="/2020/04/02/Git%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Git是什麼？
+          
+        </div>
+      </a>
     
     
       <a href="/2020/04/02/%E7%B5%82%E6%96%BC%E6%90%AD%E8%B5%B7%E4%BE%86%E4%BA%86/" class="article-nav-link">

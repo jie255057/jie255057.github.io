@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-     夢
+    Git是什麼？ |  夢
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -37,52 +37,17 @@
 <body>
   <div id="app">
     <main class="content on">
-      
-<section class="cover">
-    
-  <div class="cover-frame">
-    <div class="bg-box">
-      <img src="/images/cover4.jpg" alt="image frame" />
-    </div>
-    <div class="cover-inner text-center text-white">
-      <h1><a href="/">夢</a></h1>
-      <div id="subtitle-box">
-        
-        <span id="subtitle"></span>
-        
-      </div>
-      <div>
-        
-      </div>
-    </div>
-  </div>
-  <div class="cover-learn-more">
-    <a href="javascript:void(0)" class="anchor"><i class="ri-arrow-down-line"></i></a>
-  </div>
-</section>
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js"></script>
-
-<div id="main">
-  <section class="outer">
-  <article class="articles">
-    
-    
-    
-    
-    <article id="post-Git是什麼？" class="article article-type-post" itemscope
+      <section class="outer">
+  <article id="post-Git是什麼？" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
     
     <header class="article-header">
        
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/04/02/Git%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F/"
-    >Git是什麼？</a> 
-</h2>
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Git是什麼？
+</h1>
  
 
     </header>
@@ -96,9 +61,34 @@
       
       
       
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">291字</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">1分钟</span>
+        </span>
+    </span>
+</div>
+
       
     </div>
     
+
+    
+    
+
+
+
 
     
 
@@ -136,180 +126,80 @@
   </div>
 
   
+  
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/04/02/Rails-%E8%BF%BDcode-%E5%B0%8F%E6%8A%80%E5%B7%A7/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Rails 追code 小技巧</div>
+      </a>
+    
+  </nav>
+
+
+  
 
   
   
-  
-
-  
-
-</article>
-    
-    <article id="post-Rails-追code-小技巧" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/04/02/Rails-%E8%BF%BDcode-%E5%B0%8F%E6%8A%80%E5%B7%A7/"
-    >Rails 追code 小技巧</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/04/02/Rails-%E8%BF%BDcode-%E5%B0%8F%E6%8A%80%E5%B7%A7/" class="article-date">
-  <time datetime="2020-04-02T07:19:27.000Z" itemprop="datePublished">2020-04-02</time>
-</a>
-      
-      
-      
-      
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
     </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <p>是不是有時候覺得，幹這方法到底在哪裡？到底是幹嘛的？然後這個object到底有哪些方法可以用？滿頭問好？？？本人正是如此</p>
-<p>今天假設我們有一個 Cat class，裡面有兩個methods，當然可能更多。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span></span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">run</span></span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">eat</span></span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>那我們可以用 Cat.new.methods，在consolo裡面查這個class裡，到底有哪些方法</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Cat.new.methods</span><br><span class="line"> =&gt; [<span class="symbol">:run</span>, <span class="symbol">:eat</span>, <span class="symbol">:instance_variable_set</span>, <span class="symbol">:instance_variable_defined?</span>, <span class="symbol">:remove_instance_variable</span>, <span class="symbol">:instance_of?</span>, <span class="symbol">:kind_of?</span>, <span class="symbol">:is_a?</span>, <span class="symbol">:tap</span>, <span class="symbol">:instance_variable_get</span>, <span class="symbol">:public_methods</span>, <span class="symbol">:instance_variables</span>, <span class="symbol">:method</span>, <span class="symbol">:public_method</span>, <span class="symbol">:define_singleton_method</span>, <span class="symbol">:public_send</span>, <span class="symbol">:singleton_method</span>, <span class="symbol">:extend</span>, <span class="symbol">:pp</span>, <span class="symbol">:to_enum</span>, <span class="symbol">:enum_for</span>, <span class="symbol">:&lt;=&gt;</span>, <span class="symbol">:===</span>, <span class="symbol">:=~</span>, <span class="symbol">:</span>!~, <span class="symbol">:eql?</span>, <span class="symbol">:respond_to?</span>, <span class="symbol">:freeze</span>, <span class="symbol">:inspect</span>, <span class="symbol">:object_id</span>, <span class="symbol">:send</span>, <span class="symbol">:to_s</span>, <span class="symbol">:display</span>, <span class="symbol">:nil?</span>, <span class="symbol">:hash</span>, <span class="symbol">:class</span>, <span class="symbol">:singleton_class</span>, <span class="symbol">:clone</span>, <span class="symbol">:itself</span>, <span class="symbol">:dup</span>, <span class="symbol">:taint</span>, <span class="symbol">:yield_self</span>, <span class="symbol">:untaint</span>, <span class="symbol">:tainted?</span>, <span class="symbol">:untrusted?</span>, <span class="symbol">:untrust</span>, <span class="symbol">:frozen?</span>, <span class="symbol">:trust</span>, <span class="symbol">:methods</span>, <span class="symbol">:singleton_methods</span>, <span class="symbol">:protected_methods</span>, <span class="symbol">:private_methods</span>, <span class="symbol">:</span>!, <span class="symbol">:equal?</span>, <span class="symbol">:instance_eval</span>, <span class="symbol">:==</span>, <span class="symbol">:instance_exec</span>, <span class="symbol">:</span>!=, <span class="symbol">:__id__</span>, <span class="symbol">:__send__</span>]</span><br></pre></td></tr></table></figure>
-<p>有看到前面兩個method嗎？是我們自己定義的method，也看到了這個calss繼承的所有的method。</p>
-<p>那我只想看只定義在這個calss裡的method呢？</p>
-<p>可以用 Cat.new.methods - Object.new.methods</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cat.new.methods - Object.new.methods</span><br></pre></td></tr></table></figure>
-<p>那有些幫你做好的method，它的原始碼在哪裡？想看它是怎麼做的</p>
-<p>這時候我們就可以用Rails 的小技巧</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cat = Cat.new </span><br><span class="line"></span><br><span class="line">cat.method(<span class="symbol">:run</span>)</span><br><span class="line"><span class="comment"># =&gt; #&lt;Method: cat#run&gt;</span></span><br><span class="line"></span><br><span class="line">cat.method(<span class="symbol">:run</span>).source_location</span><br><span class="line"><span class="comment"># =&gt; ["cat.rb", 1]</span></span><br></pre></td></tr></table></figure>
-<p>這樣追，一直追追追，追到天涯海角吧～～～</p>
-<p><a href="https://www.spreered.com/learn-rail-by-ruby/" target="_blank" rel="noopener">https://www.spreered.com/learn-rail-by-ruby/</a><br>
-本篇參考以上文章</p>
-
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-終於搭起來了" class="article article-type-post" itemscope
-  itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2020/04/02/%E7%B5%82%E6%96%BC%E6%90%AD%E8%B5%B7%E4%BE%86%E4%BA%86/"
-    >終於搭起來了</a> 
-</h2>
- 
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2020/04/02/%E7%B5%82%E6%96%BC%E6%90%AD%E8%B5%B7%E4%BE%86%E4%BA%86/" class="article-date">
-  <time datetime="2020-04-02T06:21:26.000Z" itemprop="datePublished">2020-04-02</time>
-</a>
-      
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-      
-
-      
-      <p>趁著清明連假，又加上剛好疫情的關係，沒有去掃墓。</p>
-<p><em>又加上現在人家說去掃墓，只是更早跟墓裡的團員。</em></p>
-<p>所以趕快搭起來，不然我的電腦裡有好幾個blog檔案，根本都跟新的一樣ＸＤ</p>
-<p>這次用Hexo來搭配GitHub Pages，雖然在裝Hexo的時候花了一些時間，</p>
-<p>因為Hexo的檔案位置不對，所以不管怎樣我下 <code>hexo init</code></p>
-<p>都得到 <code>zsh: command not found: hexo</code></p>
-<p>最後解決辦法是</p>
-<p>#刪除安裝<br>
-<code>yarn global remove hexo-cli</code><br>
-#重新安裝<br>
-<code>yarn global add hexo-cli --prefix /usr/local</code></p>
-<p>之後再執行 hexo 就有了。</p>
-<p>一直都很想搭部落格起來，加上開始工作的原因(根本不是藉口)<br>
-遲遲還沒動手，但發上實在有太多需要寫下來的。</p>
-<p>畢竟能用別人看得懂的話說明出來，都是經過腦子思考的，<br>
-雖然問問題很難，但我依舊持續學習中啦啦啦啦啦</p>
-<p>-W</p>
-
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-  </article>
-  
-
-  
-</section>
 </div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        app_id: '',
+        app_key: '',
+        path: window.location.pathname,
+        notify: 'false',
+        verify: 'false',
+        avatar: 'mp',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
 
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+</section>
       <footer class="footer">
   <div class="outer">
     <ul class="list-inline">
@@ -422,6 +312,24 @@
 </script>
 
 
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
 
 
 
