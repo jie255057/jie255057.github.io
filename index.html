@@ -72,6 +72,78 @@
     
     
     
+    <article id="post-Heroku-Application-error解決" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/04/02/Heroku-Application-error%E8%A7%A3%E6%B1%BA/"
+    >Heroku Application error解決</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/04/02/Heroku-Application-error%E8%A7%A3%E6%B1%BA/" class="article-date">
+  <time datetime="2020-04-02T07:39:23.000Z" itemprop="datePublished">2020-04-02</time>
+</a>
+      
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p><img src="https://miro.medium.com/max/1400/1*l2kUD9UHZDBqDir9mLqOSQ.png" alt=""><br>因為把第一個專案要推上Heroku，滿心期待第一個作品可以上線，看著其他同學都有畫面，我卻跑這他額娘的Application error畫面，真是讓人難過。</p>
+<p>於是就透過 <code>heroku logs - tail</code> 這段指令，看到了以下畫面</p>
+<p><img src="https://miro.medium.com/max/560/1*lKzMg6p58XUGUeqMoJe9Kw.png" alt=""></p>
+<p>他等待了60秒的PROT，但都沒有收到，後來才發現，因為專案裡的Profile已經寫死了 3000。</p>
+<p><code>web: bin/rails server -p 3000</code></p>
+<p>改成</p>
+<p><code>web: bin/rails server -p $PORT</code></p>
+<p>可能是因為Heroku不能指定PROT的關係。</p>
+<p>如果你的問題也跟我一樣，可以嘗試看看這個方法。</p>
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-Git是什麼？" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
@@ -111,13 +183,9 @@
       <p>git是什麼？版本控制？對於第一次聽到的我，版本控制是啥？</p>
 <p>沒錯，就是這樣，版本控制我連語意都不懂，但其實用來很方便也不簡單(誤</p>
 <p>應該說要用的很熟透，真的必須練習加上實作。</p>
-<p>那它到底是什麼呢？其實可以把它想成玩遊戲在存檔，把你的文件存檔，然後推到GitHub(Git跟GitHub不一樣)，你應該可以想像，當<br>
-你要改檔案，但又怕改下去爆掉，是不是都會拷貝一份，當你爆了在拷貝一份就好了，很方便對吧，當你回過神時，你已經拷貝了20份了。</p>
-<p>這時候Git的好處就來了，你存檔了，push上去了，改壞了，在clone下來就好了，而且每次修改的紀錄，都會被存進去，可以看出來這<br>
-段code跟上段哪裡有不一樣。</p>
-<p>難嗎？只要會add , commit , push 就好了啊，但當你想合併分支，刪除分支 ，這些指令也是必須記一下的。<br>
-<img src="https://pic1.xuehuaimg.com/proxy/csdn/https://img-blog.csdnimg.cn/20181205192850247.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAzMTQxNjA=,size_16,color_FFFFFF,t_70" alt=""><br>
-上面的說明，很清楚，用講的用背的，不如實際操作看看。</p>
+<p>那它到底是什麼呢？其實可以把它想成玩遊戲在存檔，把你的文件存檔，然後推到GitHub(Git跟GitHub不一樣)，你應該可以想像，當<br>你要改檔案，但又怕改下去爆掉，是不是都會拷貝一份，當你爆了在拷貝一份就好了，很方便對吧，當你回過神時，你已經拷貝了20份了。</p>
+<p>這時候Git的好處就來了，你存檔了，push上去了，改壞了，在clone下來就好了，而且每次修改的紀錄，都會被存進去，可以看出來這<br>段code跟上段哪裡有不一樣。</p>
+<p>難嗎？只要會add , commit , push 就好了啊，但當你想合併分支，刪除分支 ，這些指令也是必須記一下的。<br><img src="https://pic1.xuehuaimg.com/proxy/csdn/https://img-blog.csdnimg.cn/20181205192850247.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAzMTQxNjA=,size_16,color_FFFFFF,t_70" alt=""><br>上面的說明，很清楚，用講的用背的，不如實際操作看看。</p>
 
       
       <!-- reward -->
@@ -184,8 +252,10 @@
       <p>是不是有時候覺得，幹這方法到底在哪裡？到底是幹嘛的？然後這個object到底有哪些方法可以用？滿頭問好？？？本人正是如此</p>
 <p>今天假設我們有一個 Cat class，裡面有兩個methods，當然可能更多。</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span></span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">run</span></span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">eat</span></span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
 <p>那我們可以用 Cat.new.methods，在consolo裡面查這個class裡，到底有哪些方法</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Cat.new.methods</span><br><span class="line"> =&gt; [<span class="symbol">:run</span>, <span class="symbol">:eat</span>, <span class="symbol">:instance_variable_set</span>, <span class="symbol">:instance_variable_defined?</span>, <span class="symbol">:remove_instance_variable</span>, <span class="symbol">:instance_of?</span>, <span class="symbol">:kind_of?</span>, <span class="symbol">:is_a?</span>, <span class="symbol">:tap</span>, <span class="symbol">:instance_variable_get</span>, <span class="symbol">:public_methods</span>, <span class="symbol">:instance_variables</span>, <span class="symbol">:method</span>, <span class="symbol">:public_method</span>, <span class="symbol">:define_singleton_method</span>, <span class="symbol">:public_send</span>, <span class="symbol">:singleton_method</span>, <span class="symbol">:extend</span>, <span class="symbol">:pp</span>, <span class="symbol">:to_enum</span>, <span class="symbol">:enum_for</span>, <span class="symbol">:&lt;=&gt;</span>, <span class="symbol">:===</span>, <span class="symbol">:=~</span>, <span class="symbol">:</span>!~, <span class="symbol">:eql?</span>, <span class="symbol">:respond_to?</span>, <span class="symbol">:freeze</span>, <span class="symbol">:inspect</span>, <span class="symbol">:object_id</span>, <span class="symbol">:send</span>, <span class="symbol">:to_s</span>, <span class="symbol">:display</span>, <span class="symbol">:nil?</span>, <span class="symbol">:hash</span>, <span class="symbol">:class</span>, <span class="symbol">:singleton_class</span>, <span class="symbol">:clone</span>, <span class="symbol">:itself</span>, <span class="symbol">:dup</span>, <span class="symbol">:taint</span>, <span class="symbol">:yield_self</span>, <span class="symbol">:untaint</span>, <span class="symbol">:tainted?</span>, <span class="symbol">:untrusted?</span>, <span class="symbol">:untrust</span>, <span class="symbol">:frozen?</span>, <span class="symbol">:trust</span>, <span class="symbol">:methods</span>, <span class="symbol">:singleton_methods</span>, <span class="symbol">:protected_methods</span>, <span class="symbol">:private_methods</span>, <span class="symbol">:</span>!, <span class="symbol">:equal?</span>, <span class="symbol">:instance_eval</span>, <span class="symbol">:==</span>, <span class="symbol">:instance_exec</span>, <span class="symbol">:</span>!=, <span class="symbol">:__id__</span>, <span class="symbol">:__send__</span>]</span><br></pre></td></tr></table></figure>
+
 <p>有看到前面兩個method嗎？是我們自己定義的method，也看到了這個calss繼承的所有的method。</p>
 <p>那我只想看只定義在這個calss裡的method呢？</p>
 <p>可以用 Cat.new.methods - Object.new.methods</p>
@@ -194,8 +264,7 @@
 <p>這時候我們就可以用Rails 的小技巧</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cat = Cat.new </span><br><span class="line"></span><br><span class="line">cat.method(<span class="symbol">:run</span>)</span><br><span class="line"><span class="comment"># =&gt; #&lt;Method: cat#run&gt;</span></span><br><span class="line"></span><br><span class="line">cat.method(<span class="symbol">:run</span>).source_location</span><br><span class="line"><span class="comment"># =&gt; ["cat.rb", 1]</span></span><br></pre></td></tr></table></figure>
 <p>這樣追，一直追追追，追到天涯海角吧～～～</p>
-<p><a href="https://www.spreered.com/learn-rail-by-ruby/" target="_blank" rel="noopener">https://www.spreered.com/learn-rail-by-ruby/</a><br>
-本篇參考以上文章</p>
+<p><a href="https://www.spreered.com/learn-rail-by-ruby/" target="_blank" rel="noopener">https://www.spreered.com/learn-rail-by-ruby/</a><br>本篇參考以上文章</p>
 
       
       <!-- reward -->
@@ -266,15 +335,10 @@
 <p>因為Hexo的檔案位置不對，所以不管怎樣我下 <code>hexo init</code></p>
 <p>都得到 <code>zsh: command not found: hexo</code></p>
 <p>最後解決辦法是</p>
-<p>#刪除安裝<br>
-<code>yarn global remove hexo-cli</code><br>
-#重新安裝<br>
-<code>yarn global add hexo-cli --prefix /usr/local</code></p>
+<p>#刪除安裝<br><code>yarn global remove hexo-cli</code><br>#重新安裝<br><code>yarn global add hexo-cli --prefix /usr/local</code></p>
 <p>之後再執行 hexo 就有了。</p>
-<p>一直都很想搭部落格起來，加上開始工作的原因(根本不是藉口)<br>
-遲遲還沒動手，但發上實在有太多需要寫下來的。</p>
-<p>畢竟能用別人看得懂的話說明出來，都是經過腦子思考的，<br>
-雖然問問題很難，但我依舊持續學習中啦啦啦啦啦</p>
+<p>一直都很想搭部落格起來，加上開始工作的原因(根本不是藉口)<br>遲遲還沒動手，但發上實在有太多需要寫下來的。</p>
+<p>畢竟能用別人看得懂的話說明出來，都是經過腦子思考的，<br>雖然問問題很難，但我依舊持續學習中啦啦啦啦啦</p>
 <p>-W</p>
 
       
