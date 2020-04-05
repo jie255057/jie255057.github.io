@@ -98,7 +98,8 @@
       
 
       
-      <p><img src="https://miro.medium.com/max/1400/1*l2kUD9UHZDBqDir9mLqOSQ.png" alt=""><br>因為把第一個專案要推上Heroku，滿心期待第一個作品可以上線，看著其他同學都有畫面，我卻跑這他額娘的Application error畫面，真是讓人難過。</p>
+      <p><img src="https://miro.medium.com/max/1400/1*l2kUD9UHZDBqDir9mLqOSQ.png" alt=""><br>
+因為把第一個專案要推上Heroku，滿心期待第一個作品可以上線，看著其他同學都有畫面，我卻跑這他額娘的Application error畫面，真是讓人難過。</p>
 <p>於是就透過 <code>heroku logs - tail</code> 這段指令，看到了以下畫面</p>
 <p><img src="https://miro.medium.com/max/560/1*lKzMg6p58XUGUeqMoJe9Kw.png" alt=""></p>
 <p>他等待了60秒的PROT，但都沒有收到，後來才發現，因為專案裡的Profile已經寫死了 3000。</p>
