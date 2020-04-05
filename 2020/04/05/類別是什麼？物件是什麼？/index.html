@@ -66,7 +66,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">394字</span>
+            <span class="post-count">329字</span>
         </span>
     </span>
 
@@ -98,26 +98,17 @@
       
 
       
-      <p>Ruby是一款物件導向程式設計的語言。<br>
-因為自己本身的第一個語言是Ruby，有很多要學習的，加上自己不是本科系出生的，所以對於很多程式的基礎不了解不清楚。</p>
-<p>既然是物件導向程式設計，那物件是什麼？<br>
-其實我覺得應該先搞懂這個。<br>
-趁著清明連假，先了解一些基礎，不然很多基礎搞不懂，根本只是個會寫code的人，因為我不懂它運作的原理。</p>
-<p>類別：一張設計圖，藍圖，可以參考的文件，沒有實體的存在。<br>
-<em>但在Ruby的世界裡，類別也是一個物件。</em><br>
-物件：看得到、摸得到的實體，屬於動態，但狀態隨時會改變。</p>
+      <p>既然是物件導向程式設計，那物件是什麼？<br>其實我覺得應該先搞懂這個。<br>趁著清明連假，先了解一些基礎，不然很多基礎搞不懂，根本只是個會寫code的人，因為我不懂它運作的原理。</p>
+<p>類別：一張設計圖，藍圖，可以參考的文件，沒有實體的存在。<br><em>但在Ruby的世界裡，類別也是一個物件。</em><br>物件：看得到、摸得到的實體，屬於動態，但狀態隨時會改變。</p>
 <p>在Ruby裡如何定義一個類別呢？</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span></span></span><br><span class="line">  <span class="comment">#...</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>這樣我們就定義了Cat 這個class(類別)<br>
-當然裡面可以定義很多methods(方法)</p>
+<p>這樣我們就定義了Cat 這個class(類別)<br>當然裡面可以定義很多methods(方法)</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span></span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">eat</span><span class="params">(food)</span></span></span><br><span class="line">    puts <span class="string">"<span class="subst">#&#123;food&#125;</span> 好好吃！"</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>我們先定義一個 <code>eat</code> 這個方法。<br>
-接下來用 <code>new</code>方法來把 Cat類別創造出新的物件。</p>
+
+<p>我們先定義一個 <code>eat</code> 這個方法。<br>接下來用 <code>new</code>方法來把 Cat類別創造出新的物件。</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">willy = Cat.new</span><br><span class="line">willy.eat(<span class="string">"罐頭"</span>) =&gt; 印出 [罐頭 好好吃!]</span><br></pre></td></tr></table></figure>
-<p>簡單來說，為什麼說類別是一張設計圖？<br>
-比方要蓋一棟房子，首先需要一張設計圖(類別)<br>
-那你要透過<code>new</code>出設計圖的房子(物件)<br>
-透過這樣簡單的的比喻，就可以把類別與物件分得比較清楚。</p>
+
+<p>簡單來說，為什麼說類別是一張設計圖？<br>比方要蓋一棟房子，首先需要一張設計圖(類別)<br>那你要透過<code>new</code>出設計圖的房子(物件)<br>透過這樣簡單的的比喻，就可以把類別與物件分得比較清楚。</p>
 <p>可能比喻的不是很好，再麻煩大家給我一些指教。</p>
 <p>-W</p>
 

@@ -108,26 +108,17 @@
       
 
       
-      <p>Ruby是一款物件導向程式設計的語言。<br>
-因為自己本身的第一個語言是Ruby，有很多要學習的，加上自己不是本科系出生的，所以對於很多程式的基礎不了解不清楚。</p>
-<p>既然是物件導向程式設計，那物件是什麼？<br>
-其實我覺得應該先搞懂這個。<br>
-趁著清明連假，先了解一些基礎，不然很多基礎搞不懂，根本只是個會寫code的人，因為我不懂它運作的原理。</p>
-<p>類別：一張設計圖，藍圖，可以參考的文件，沒有實體的存在。<br>
-<em>但在Ruby的世界裡，類別也是一個物件。</em><br>
-物件：看得到、摸得到的實體，屬於動態，但狀態隨時會改變。</p>
+      <p>既然是物件導向程式設計，那物件是什麼？<br>其實我覺得應該先搞懂這個。<br>趁著清明連假，先了解一些基礎，不然很多基礎搞不懂，根本只是個會寫code的人，因為我不懂它運作的原理。</p>
+<p>類別：一張設計圖，藍圖，可以參考的文件，沒有實體的存在。<br><em>但在Ruby的世界裡，類別也是一個物件。</em><br>物件：看得到、摸得到的實體，屬於動態，但狀態隨時會改變。</p>
 <p>在Ruby裡如何定義一個類別呢？</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span></span></span><br><span class="line">  <span class="comment">#...</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>這樣我們就定義了Cat 這個class(類別)<br>
-當然裡面可以定義很多methods(方法)</p>
+<p>這樣我們就定義了Cat 這個class(類別)<br>當然裡面可以定義很多methods(方法)</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span></span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">eat</span><span class="params">(food)</span></span></span><br><span class="line">    puts <span class="string">"<span class="subst">#&#123;food&#125;</span> 好好吃！"</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>我們先定義一個 <code>eat</code> 這個方法。<br>
-接下來用 <code>new</code>方法來把 Cat類別創造出新的物件。</p>
+
+<p>我們先定義一個 <code>eat</code> 這個方法。<br>接下來用 <code>new</code>方法來把 Cat類別創造出新的物件。</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">willy = Cat.new</span><br><span class="line">willy.eat(<span class="string">"罐頭"</span>) =&gt; 印出 [罐頭 好好吃!]</span><br></pre></td></tr></table></figure>
-<p>簡單來說，為什麼說類別是一張設計圖？<br>
-比方要蓋一棟房子，首先需要一張設計圖(類別)<br>
-那你要透過<code>new</code>出設計圖的房子(物件)<br>
-透過這樣簡單的的比喻，就可以把類別與物件分得比較清楚。</p>
+
+<p>簡單來說，為什麼說類別是一張設計圖？<br>比方要蓋一棟房子，首先需要一張設計圖(類別)<br>那你要透過<code>new</code>出設計圖的房子(物件)<br>透過這樣簡單的的比喻，就可以把類別與物件分得比較清楚。</p>
 <p>可能比喻的不是很好，再麻煩大家給我一些指教。</p>
 <p>-W</p>
 
@@ -194,27 +185,16 @@
 
       
       <p>淺談在Ruby裡的字串與符號，首先我們先看看字串的樣字</p>
-<p>字串物件的組合是由<br>
-<img src="https://miro.medium.com/max/988/1*Zsq3bUJJq3Vb5u2yZ1BRjA.png" alt=""><br>
-一個變數來指向字串物件，來形成字串物件，如果沒有指向字串這個名字(name)變數，則無法成立單獨身存。因為它是空的，沒有代表任何物件。也可以稱為String物件。</p>
-<p>再來看看 Symbol<br>
-<img src="https://miro.medium.com/max/1004/1*MoyMzPZYE1DCIYlc3ZCTsw.png" alt=""><br>
-一樣是由一個變數來指向 :name ，但這時候就不是字串物件了，而變成符號(Symbol)。</p>
+<p>字串物件的組合是由<br><img src="https://miro.medium.com/max/988/1*Zsq3bUJJq3Vb5u2yZ1BRjA.png" alt=""><br>一個變數來指向字串物件，來形成字串物件，如果沒有指向字串這個名字(name)變數，則無法成立單獨身存。因為它是空的，沒有代表任何物件。也可以稱為String物件。</p>
+<p>再來看看 Symbol<br><img src="https://miro.medium.com/max/1004/1*MoyMzPZYE1DCIYlc3ZCTsw.png" alt=""><br>一樣是由一個變數來指向 :name ，但這時候就不是字串物件了，而變成符號(Symbol)。</p>
 <p>那字串與符號的不同呢？</p>
-<p>字串是可以更改內容的，而符號*(Symbol)*是不能的!!! (以下就直接通稱符號</p>
+<p>字串是可以更改內容的，而符號<em>(Symbol)</em>是不能的!!! (以下就直接通稱符號</p>
 <p>因為這時候符號已經變成了有名字的字串了。</p>
 <p>就像你的名字可以更改嗎？好啦其實可以，去戶政事務所。</p>
 <p>舉例看看：好比今天棒球的本壘板，它已經定義叫做本壘板了，不可能更改叫一壘或二壘吧。</p>
-<p>我們也可以用.class來看這時候變數是什麼個物件類別。<br>
-<img src="https://miro.medium.com/max/1400/1*uxSej6MER94aPyjNWOPS-g.png" alt=""><br>
-<img src="https://miro.medium.com/max/1400/1*jDtsL5xdlQxJ4zgtyo4Rxw.png" alt=""><br>
-符號類別字串物件類別可以看得出來他們的類別不一樣吧 😃</p>
+<p>我們也可以用.class來看這時候變數是什麼個物件類別。<br><img src="https://miro.medium.com/max/1400/1*uxSej6MER94aPyjNWOPS-g.png" alt=""><br><img src="https://miro.medium.com/max/1400/1*jDtsL5xdlQxJ4zgtyo4Rxw.png" alt=""><br>符號類別字串物件類別可以看得出來他們的類別不一樣吧 😃</p>
 <p>當然它們也有別的不同之處，物件的ID位置(身分證字號)，我們可以用</p>
-<p>.object_id 來查詢它們所在的ID位置。<br>
-<img src="https://miro.medium.com/max/1400/1*SSlfrvyi36iAQChyn_eXtA.png" alt=""><br>
-有看到右邊一串一串的亂碼嗎？那就是willy這個字串的ID位置，每次輸入每次的位置不同，因為每次查詢都會在建立一個新字串，才會有不同的ID位置。<br>
-<img src="https://miro.medium.com/max/1400/1*mTY9-ECbZ5VMezHX21rOLw.png" alt=""><br>
-但符號的ID位置是不會改變的，因為ID位置如果相同的話，表示它們都是同一個物件，這樣下次需要這個符號時，記憶體就不用在新增一份，直接從記憶體取出，相對的符號也較省記憶體空間。</p>
+<p>.object_id 來查詢它們所在的ID位置。<br><img src="https://miro.medium.com/max/1400/1*SSlfrvyi36iAQChyn_eXtA.png" alt=""><br>有看到右邊一串一串的亂碼嗎？那就是willy這個字串的ID位置，每次輸入每次的位置不同，因為每次查詢都會在建立一個新字串，才會有不同的ID位置。<br><img src="https://miro.medium.com/max/1400/1*mTY9-ECbZ5VMezHX21rOLw.png" alt=""><br>但符號的ID位置是不會改變的，因為ID位置如果相同的話，表示它們都是同一個物件，這樣下次需要這個符號時，記憶體就不用在新增一份，直接從記憶體取出，相對的符號也較省記憶體空間。</p>
 <p>字串及 符號(Symbol) 類別都有提供一些方法可以互相轉換，</p>
 <p>我們可以用:</p>
 <p>字串轉符號使用:to_sym</p>
@@ -288,8 +268,7 @@
       
 
       
-      <p><img src="https://miro.medium.com/max/1400/1*l2kUD9UHZDBqDir9mLqOSQ.png" alt=""><br>
-因為把第一個專案要推上Heroku，滿心期待第一個作品可以上線，看著其他同學都有畫面，我卻跑這他額娘的Application error畫面，真是讓人難過。</p>
+      <p><img src="https://miro.medium.com/max/1400/1*l2kUD9UHZDBqDir9mLqOSQ.png" alt=""><br>因為把第一個專案要推上Heroku，滿心期待第一個作品可以上線，看著其他同學都有畫面，我卻跑這他額娘的Application error畫面，真是讓人難過。</p>
 <p>於是就透過 <code>heroku logs - tail</code> 這段指令，看到了以下畫面</p>
 <p><img src="https://miro.medium.com/max/560/1*lKzMg6p58XUGUeqMoJe9Kw.png" alt=""></p>
 <p>他等待了60秒的PROT，但都沒有收到，後來才發現，因為專案裡的Profile已經寫死了 3000。</p>
@@ -364,13 +343,9 @@
       <p>git是什麼？版本控制？對於第一次聽到的我，版本控制是啥？</p>
 <p>沒錯，就是這樣，版本控制我連語意都不懂，但其實用來很方便也不簡單(誤</p>
 <p>應該說要用的很熟透，真的必須練習加上實作。</p>
-<p>那它到底是什麼呢？其實可以把它想成玩遊戲在存檔，把你的文件存檔，然後推到GitHub(Git跟GitHub不一樣)，你應該可以想像，當<br>
-你要改檔案，但又怕改下去爆掉，是不是都會拷貝一份，當你爆了在拷貝一份就好了，很方便對吧，當你回過神時，你已經拷貝了20份了。</p>
-<p>這時候Git的好處就來了，你存檔了，push上去了，改壞了，在clone下來就好了，而且每次修改的紀錄，都會被存進去，可以看出來這<br>
-段code跟上段哪裡有不一樣。</p>
-<p>難嗎？只要會add , commit , push 就好了啊，但當你想合併分支，刪除分支 ，這些指令也是必須記一下的。<br>
-<img src="https://pic1.xuehuaimg.com/proxy/csdn/https://img-blog.csdnimg.cn/20181205192850247.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAzMTQxNjA=,size_16,color_FFFFFF,t_70" alt=""><br>
-上面的說明，很清楚，用講的用背的，不如實際操作看看。</p>
+<p>那它到底是什麼呢？其實可以把它想成玩遊戲在存檔，把你的文件存檔，然後推到GitHub(Git跟GitHub不一樣)，你應該可以想像，當<br>你要改檔案，但又怕改下去爆掉，是不是都會拷貝一份，當你爆了在拷貝一份就好了，很方便對吧，當你回過神時，你已經拷貝了20份了。</p>
+<p>這時候Git的好處就來了，你存檔了，push上去了，改壞了，在clone下來就好了，而且每次修改的紀錄，都會被存進去，可以看出來這<br>段code跟上段哪裡有不一樣。</p>
+<p>難嗎？只要會add , commit , push 就好了啊，但當你想合併分支，刪除分支 ，這些指令也是必須記一下的。<br><img src="https://pic1.xuehuaimg.com/proxy/csdn/https://img-blog.csdnimg.cn/20181205192850247.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTAzMTQxNjA=,size_16,color_FFFFFF,t_70" alt=""><br>上面的說明，很清楚，用講的用背的，不如實際操作看看。</p>
 
       
       <!-- reward -->
@@ -437,8 +412,10 @@
       <p>是不是有時候覺得，幹這方法到底在哪裡？到底是幹嘛的？然後這個object到底有哪些方法可以用？滿頭問好？？？本人正是如此</p>
 <p>今天假設我們有一個 Cat class，裡面有兩個methods，當然可能更多。</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span></span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">run</span></span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line">  </span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">eat</span></span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
 <p>那我們可以用 Cat.new.methods，在consolo裡面查這個class裡，到底有哪些方法</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Cat.new.methods</span><br><span class="line"> =&gt; [<span class="symbol">:run</span>, <span class="symbol">:eat</span>, <span class="symbol">:instance_variable_set</span>, <span class="symbol">:instance_variable_defined?</span>, <span class="symbol">:remove_instance_variable</span>, <span class="symbol">:instance_of?</span>, <span class="symbol">:kind_of?</span>, <span class="symbol">:is_a?</span>, <span class="symbol">:tap</span>, <span class="symbol">:instance_variable_get</span>, <span class="symbol">:public_methods</span>, <span class="symbol">:instance_variables</span>, <span class="symbol">:method</span>, <span class="symbol">:public_method</span>, <span class="symbol">:define_singleton_method</span>, <span class="symbol">:public_send</span>, <span class="symbol">:singleton_method</span>, <span class="symbol">:extend</span>, <span class="symbol">:pp</span>, <span class="symbol">:to_enum</span>, <span class="symbol">:enum_for</span>, <span class="symbol">:&lt;=&gt;</span>, <span class="symbol">:===</span>, <span class="symbol">:=~</span>, <span class="symbol">:</span>!~, <span class="symbol">:eql?</span>, <span class="symbol">:respond_to?</span>, <span class="symbol">:freeze</span>, <span class="symbol">:inspect</span>, <span class="symbol">:object_id</span>, <span class="symbol">:send</span>, <span class="symbol">:to_s</span>, <span class="symbol">:display</span>, <span class="symbol">:nil?</span>, <span class="symbol">:hash</span>, <span class="symbol">:class</span>, <span class="symbol">:singleton_class</span>, <span class="symbol">:clone</span>, <span class="symbol">:itself</span>, <span class="symbol">:dup</span>, <span class="symbol">:taint</span>, <span class="symbol">:yield_self</span>, <span class="symbol">:untaint</span>, <span class="symbol">:tainted?</span>, <span class="symbol">:untrusted?</span>, <span class="symbol">:untrust</span>, <span class="symbol">:frozen?</span>, <span class="symbol">:trust</span>, <span class="symbol">:methods</span>, <span class="symbol">:singleton_methods</span>, <span class="symbol">:protected_methods</span>, <span class="symbol">:private_methods</span>, <span class="symbol">:</span>!, <span class="symbol">:equal?</span>, <span class="symbol">:instance_eval</span>, <span class="symbol">:==</span>, <span class="symbol">:instance_exec</span>, <span class="symbol">:</span>!=, <span class="symbol">:__id__</span>, <span class="symbol">:__send__</span>]</span><br></pre></td></tr></table></figure>
+
 <p>有看到前面兩個method嗎？是我們自己定義的method，也看到了這個calss繼承的所有的method。</p>
 <p>那我只想看只定義在這個calss裡的method呢？</p>
 <p>可以用 Cat.new.methods - Object.new.methods</p>
@@ -447,8 +424,7 @@
 <p>這時候我們就可以用Rails 的小技巧</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cat = Cat.new </span><br><span class="line"></span><br><span class="line">cat.method(<span class="symbol">:run</span>)</span><br><span class="line"><span class="comment"># =&gt; #&lt;Method: cat#run&gt;</span></span><br><span class="line"></span><br><span class="line">cat.method(<span class="symbol">:run</span>).source_location</span><br><span class="line"><span class="comment"># =&gt; ["cat.rb", 1]</span></span><br></pre></td></tr></table></figure>
 <p>這樣追，一直追追追，追到天涯海角吧～～～</p>
-<p><a href="https://www.spreered.com/learn-rail-by-ruby/" target="_blank" rel="noopener">https://www.spreered.com/learn-rail-by-ruby/</a><br>
-本篇參考以上文章</p>
+<p><a href="https://www.spreered.com/learn-rail-by-ruby/" target="_blank" rel="noopener">https://www.spreered.com/learn-rail-by-ruby/</a><br>本篇參考以上文章</p>
 
       
       <!-- reward -->
@@ -519,15 +495,10 @@
 <p>因為Hexo的檔案位置不對，所以不管怎樣我下 <code>hexo init</code></p>
 <p>都得到 <code>zsh: command not found: hexo</code></p>
 <p>最後解決辦法是</p>
-<p>#刪除安裝<br>
-<code>yarn global remove hexo-cli</code><br>
-#重新安裝<br>
-<code>yarn global add hexo-cli --prefix /usr/local</code></p>
+<p>#刪除安裝<br><code>yarn global remove hexo-cli</code><br>#重新安裝<br><code>yarn global add hexo-cli --prefix /usr/local</code></p>
 <p>之後再執行 hexo 就有了。</p>
-<p>一直都很想搭部落格起來，加上開始工作的原因(根本不是藉口)<br>
-遲遲還沒動手，但發上實在有太多需要寫下來的。</p>
-<p>畢竟能用別人看得懂的話說明出來，都是經過腦子思考的，<br>
-雖然問問題很難，但我依舊持續學習中啦啦啦啦啦</p>
+<p>一直都很想搭部落格起來，加上開始工作的原因(根本不是藉口)<br>遲遲還沒動手，但發上實在有太多需要寫下來的。</p>
+<p>畢竟能用別人看得懂的話說明出來，都是經過腦子思考的，<br>雖然問問題很難，但我依舊持續學習中啦啦啦啦啦</p>
 <p>-W</p>
 
       

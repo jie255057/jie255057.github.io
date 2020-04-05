@@ -99,27 +99,16 @@
 
       
       <p>淺談在Ruby裡的字串與符號，首先我們先看看字串的樣字</p>
-<p>字串物件的組合是由<br>
-<img src="https://miro.medium.com/max/988/1*Zsq3bUJJq3Vb5u2yZ1BRjA.png" alt=""><br>
-一個變數來指向字串物件，來形成字串物件，如果沒有指向字串這個名字(name)變數，則無法成立單獨身存。因為它是空的，沒有代表任何物件。也可以稱為String物件。</p>
-<p>再來看看 Symbol<br>
-<img src="https://miro.medium.com/max/1004/1*MoyMzPZYE1DCIYlc3ZCTsw.png" alt=""><br>
-一樣是由一個變數來指向 :name ，但這時候就不是字串物件了，而變成符號(Symbol)。</p>
+<p>字串物件的組合是由<br><img src="https://miro.medium.com/max/988/1*Zsq3bUJJq3Vb5u2yZ1BRjA.png" alt=""><br>一個變數來指向字串物件，來形成字串物件，如果沒有指向字串這個名字(name)變數，則無法成立單獨身存。因為它是空的，沒有代表任何物件。也可以稱為String物件。</p>
+<p>再來看看 Symbol<br><img src="https://miro.medium.com/max/1004/1*MoyMzPZYE1DCIYlc3ZCTsw.png" alt=""><br>一樣是由一個變數來指向 :name ，但這時候就不是字串物件了，而變成符號(Symbol)。</p>
 <p>那字串與符號的不同呢？</p>
-<p>字串是可以更改內容的，而符號*(Symbol)*是不能的!!! (以下就直接通稱符號</p>
+<p>字串是可以更改內容的，而符號<em>(Symbol)</em>是不能的!!! (以下就直接通稱符號</p>
 <p>因為這時候符號已經變成了有名字的字串了。</p>
 <p>就像你的名字可以更改嗎？好啦其實可以，去戶政事務所。</p>
 <p>舉例看看：好比今天棒球的本壘板，它已經定義叫做本壘板了，不可能更改叫一壘或二壘吧。</p>
-<p>我們也可以用.class來看這時候變數是什麼個物件類別。<br>
-<img src="https://miro.medium.com/max/1400/1*uxSej6MER94aPyjNWOPS-g.png" alt=""><br>
-<img src="https://miro.medium.com/max/1400/1*jDtsL5xdlQxJ4zgtyo4Rxw.png" alt=""><br>
-符號類別字串物件類別可以看得出來他們的類別不一樣吧 😃</p>
+<p>我們也可以用.class來看這時候變數是什麼個物件類別。<br><img src="https://miro.medium.com/max/1400/1*uxSej6MER94aPyjNWOPS-g.png" alt=""><br><img src="https://miro.medium.com/max/1400/1*jDtsL5xdlQxJ4zgtyo4Rxw.png" alt=""><br>符號類別字串物件類別可以看得出來他們的類別不一樣吧 😃</p>
 <p>當然它們也有別的不同之處，物件的ID位置(身分證字號)，我們可以用</p>
-<p>.object_id 來查詢它們所在的ID位置。<br>
-<img src="https://miro.medium.com/max/1400/1*SSlfrvyi36iAQChyn_eXtA.png" alt=""><br>
-有看到右邊一串一串的亂碼嗎？那就是willy這個字串的ID位置，每次輸入每次的位置不同，因為每次查詢都會在建立一個新字串，才會有不同的ID位置。<br>
-<img src="https://miro.medium.com/max/1400/1*mTY9-ECbZ5VMezHX21rOLw.png" alt=""><br>
-但符號的ID位置是不會改變的，因為ID位置如果相同的話，表示它們都是同一個物件，這樣下次需要這個符號時，記憶體就不用在新增一份，直接從記憶體取出，相對的符號也較省記憶體空間。</p>
+<p>.object_id 來查詢它們所在的ID位置。<br><img src="https://miro.medium.com/max/1400/1*SSlfrvyi36iAQChyn_eXtA.png" alt=""><br>有看到右邊一串一串的亂碼嗎？那就是willy這個字串的ID位置，每次輸入每次的位置不同，因為每次查詢都會在建立一個新字串，才會有不同的ID位置。<br><img src="https://miro.medium.com/max/1400/1*mTY9-ECbZ5VMezHX21rOLw.png" alt=""><br>但符號的ID位置是不會改變的，因為ID位置如果相同的話，表示它們都是同一個物件，這樣下次需要這個符號時，記憶體就不用在新增一份，直接從記憶體取出，相對的符號也較省記憶體空間。</p>
 <p>字串及 符號(Symbol) 類別都有提供一些方法可以互相轉換，</p>
 <p>我們可以用:</p>
 <p>字串轉符號使用:to_sym</p>
