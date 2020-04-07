@@ -72,7 +72,7 @@
     
     
     
-    <article id="post-活下去筆記-1" class="article article-type-post" itemscope
+    <article id="post-單一表格繼承與多型關聯" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -80,8 +80,8 @@
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2020/04/07/%E6%B4%BB%E4%B8%8B%E5%8E%BB%E7%AD%86%E8%A8%98-1/"
-    >活下去筆記(1)</a> 
+  <a class="article-title" href="/2020/04/07/%E5%96%AE%E4%B8%80%E8%A1%A8%E6%A0%BC%E7%B9%BC%E6%89%BF%E8%88%87%E5%A4%9A%E5%9E%8B%E9%97%9C%E8%81%AF/"
+    >單一表格繼承與多型關聯</a> 
 </h2>
  
 
@@ -90,7 +90,7 @@
 
     
     <div class="article-meta">
-      <a href="/2020/04/07/%E6%B4%BB%E4%B8%8B%E5%8E%BB%E7%AD%86%E8%A8%98-1/" class="article-date">
+      <a href="/2020/04/07/%E5%96%AE%E4%B8%80%E8%A1%A8%E6%A0%BC%E7%B9%BC%E6%89%BF%E8%88%87%E5%A4%9A%E5%9E%8B%E9%97%9C%E8%81%AF/" class="article-date">
   <time datetime="2020-04-07T14:15:13.000Z" itemprop="datePublished">2020-04-07</time>
 </a>
       
@@ -108,8 +108,7 @@
       
 
       
-      <h1 id="我要活下去！"><a href="#我要活下去！" class="headerlink" title="我要活下去！"></a>我要活下去！</h1><p>首先要感謝 <a href="https://www.spreered.com/" target="_blank" rel="noopener">Fred</a> 大大對小老弟我的諄諄教誨，當然還有很多人的幫助啦！</p>
-<p>以前不敢問問題，到現在看到什麼就想問，根本忘了先<em>查資料</em>，再發問。</p>
+      <h1 id="我要活下去！"><a href="#我要活下去！" class="headerlink" title="我要活下去！"></a>我要活下去！</h1><p>以前不敢問問題，到現在看到什麼就想問，根本忘了先<em>查資料</em>，再發問。</p>
 <p>問問題前，應該先查資料，再把不了解的濃縮人話(當然這很難！！！)</p>
 <p>難的地方不是發問，而是要很讓人聽懂。</p>
 <p>以下是得到的解答，透過我的大腦，解析出的人話(？<br>或許不對，不清楚，再麻煩大家包涵或者直接幹瞧我喔^_&lt;</p>
@@ -122,8 +121,10 @@
 
 <p>這時候他們都繼承了Animal這個爸爸，爸爸有什麼，他們就有什麼了。<br>但缺點就是，爸爸有的，你不一定需要，但你還是得擁有那些欄位。<br>如果要關閉的話就在爸爸身上加上 <code>self.abstract_class = true</code></p>
 <h2 id="多型關聯-Polymorphic-Associations"><a href="#多型關聯-Polymorphic-Associations" class="headerlink" title="多型關聯(Polymorphic Associations)"></a>多型關聯(Polymorphic Associations)</h2><p><strong>多型關連(Polymorphic Associations)可以讓一個 Model 不一定關連到某一個特定的 Model，秘訣在於除了整數的_id外部鍵之外，再加一個字串的_type欄位說明是哪一種Model。</strong></p>
-<p>多型關聯，當你有某種事情需求，已經有Model在做那件事情時。<br>我在其他Model，也想使用到那件事情時，我就不用在另外建立Model，來做一樣的事情了。<br><em>以上想用自己的話表達簡單一點，但覺得太攏統，太模糊了</em></p>
-<p><em>以下引用文件</em><br>例如一個Comment model，我們可以透過多型關連讓它belongs_to到各種不同的 Model上，假設我們已經有了Article與Photo這兩個Model，然後我們希望這兩個Model都可以被留言。不用多型關連的話，你得分別建立ArticleComment和PhotoComment的model。用多型關連的話，無論有多少種需要被留言的Model，只需要一個Comment model即可：</p>
+<p>多型關聯，當你有某種事情需求，已經有Model在做那件事情時。<br>我在其他Model，也想使用到那件事情時，我就不用在另外建立Model，來做一樣的事情了。</p>
+<p><em>以上想用自己的話表達簡單一點，但覺得太攏統，太模糊了</em></p>
+<p><em>以下引用文件</em></p>
+<p>例如一個Comment model，我們可以透過多型關連讓它belongs_to到各種不同的 Model上，假設我們已經有了Article與Photo這兩個Model，然後我們希望這兩個Model都可以被留言。不用多型關連的話，你得分別建立ArticleComment和PhotoComment的model。用多型關連的話，無論有多少種需要被留言的Model，只需要一個Comment model即可：</p>
 <p><code>rails g model comment content:text commentable_id:integer commentable_type</code></p>
 <p>產生出</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CreateComments</span> &lt; ActiveRecord::Migration[5.1]</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">change</span></span></span><br><span class="line">    create_table <span class="symbol">:comments</span> <span class="keyword">do</span> <span class="params">|t|</span></span><br><span class="line">      t.text <span class="symbol">:content</span></span><br><span class="line">      t.integer <span class="symbol">:commentable_id</span></span><br><span class="line">      t.string <span class="symbol">:commentable_type</span></span><br><span class="line"></span><br><span class="line">      t.timestamps</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
