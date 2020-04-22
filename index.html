@@ -72,6 +72,87 @@
     
     
     
+    <article id="post-Rails-super-起飛摟" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/04/22/Rails-super-%E8%B5%B7%E9%A3%9B%E6%91%9F/"
+    >Rails super 起飛摟</a> 
+</h2>
+ 
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/04/22/Rails-super-%E8%B5%B7%E9%A3%9B%E6%91%9F/" class="article-date">
+  <time datetime="2020-04-22T15:05:48.000Z" itemprop="datePublished">2020-04-22</time>
+</a>
+      
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+      
+
+      
+      <p>趁著還有想法的時候，趕快寫下來。<br>因為專案的關係，用到了<code>class_eval</code> and <code>super</code>。<br>相信大家對<code>super</code>不陌生，可能常看到吧。</p>
+<p><code>super</code>是什麼呢？<br><em>It[Super] calls a method on the parent class with the same name as the method that calls super.</em><br>它是當我們想要使用一個類別(class)中的特定方法，但又想保留它父層原有同名方法裡的內容。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">hi</span></span></span><br><span class="line">    p <span class="string">"哈摟"</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> &lt; A</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">hi</span></span></span><br><span class="line">    <span class="keyword">super</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">B.new.hi</span><br><span class="line"> =&gt; <span class="string">"哈摟"</span></span><br></pre></td></tr></table></figure>
+
+<p>A class裡面定義了一個<code>hi</code> method，B class繼承A class，同時B class裡面也定義了<code>hi</code>，在裡面用了super，當B class使用了<code>hi</code>方法時，也一併把B class裡的方法帶到父層A class裡的<code>hi</code> method裡執行。但上面的範例根本不用這樣做，因為既然是繼承了，它根本不用在定義一個同名方法，直接使用<code>B.new.hi</code>也會是一樣的結果。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">hi</span></span></span><br><span class="line">    p <span class="string">"哈摟"</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> &lt; A</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">hi</span></span></span><br><span class="line">    <span class="keyword">super</span></span><br><span class="line">    p <span class="string">"大家好"</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">B.new.hi</span><br><span class="line">=&gt; </span><br><span class="line"><span class="string">"哈摟"</span></span><br><span class="line"><span class="string">"大家好"</span></span><br></pre></td></tr></table></figure>
+
+<p>雖然範例不是很好，但我這次在B class加了”大家好”，B class <code>hi</code> method，就把它帶到父層A class <code>hi</code> method一起執行了。</p>
+<p>那這次專案裡踩到的雷，是我們使用了<code>class_eval</code>這個method(可自行google or 我哪天會寫一篇)<br>我需要從原本的<code>index</code>繼續延伸下去，所以我以為在<code>class_eval</code>裡用<code>super</code>就能繼續在<code>index</code>寫下去。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">xxxController.class_eval <span class="keyword">do</span></span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">index</span></span></span><br><span class="line">    <span class="keyword">super</span></span><br><span class="line">    <span class="comment">#以下我要執行得代碼</span></span><br><span class="line">    ...</span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>但會噴<br><em>NoMethodError (super: no superclass method <code>index</code>)</em></p>
+<p>因為這時<code>xxxController.class_eavl</code>就是它自己，所以在延伸<code>index</code>時沒有super可用(除非它的父層有<code>index</code>)。<br>我用<code>ancestors</code>來看看這個<code>controller</code>的祖先們是誰，看到以下這些，感覺就沒有繼承<code>index</code>難怪會錯。<br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Spree::BaseController,</span><br><span class="line">Spree::ViewContext,</span><br><span class="line">ActionController::Base,</span><br><span class="line">Devise::OmniAuth::UrlHelpers,</span><br><span class="line">Devise::Controllers::UrlHelpers,</span><br><span class="line">Devise::Controllers::Helpers,</span><br><span class="line">Devise::Controllers::StoreLocation,</span><br><span class="line">Devise::Controllers::SignInOut,</span><br><span class="line">Turbolinks::Redirection,</span><br><span class="line">Turbolinks::Controller,</span><br><span class="line">Rollbar::Rails::ControllerMethods,</span><br><span class="line">Rollbar::RequestDataExtractor,</span><br><span class="line">ActiveRecord::Railties::ControllerRuntime,</span><br><span class="line">ActionDispatch::Routing::RouteSet::MountedHelpers,</span><br><span class="line">VersionCake::ControllerAdditions,</span><br><span class="line">ActionController::RespondWith,</span><br><span class="line">CanCan::ControllerAdditions,</span><br><span class="line">ActionController::ParamsWrapper,</span><br><span class="line">ActionController::Instrumentation,</span><br><span class="line">ActionController::Rescue</span><br></pre></td></tr></table></figure>
+
+<p>這時就可以用<code>concern module</code>來<code>include</code>。就可以嘍。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">module</span> <span class="title">Hello</span></span></span><br><span class="line">  extend ActiveSupport::Concern</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">index</span></span></span><br><span class="line">    <span class="keyword">super</span></span><br><span class="line">    respond_to <span class="keyword">do</span> <span class="params">|f|</span></span><br><span class="line">      f.html</span><br><span class="line">      f.xlsx <span class="keyword">do</span></span><br><span class="line">        ...</span><br><span class="line">      <span class="keyword">end</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span> </span><br><span class="line"></span><br><span class="line">---我是分隔線</span><br><span class="line"></span><br><span class="line">xxxController.class_eval <span class="keyword">do</span></span><br><span class="line">  <span class="keyword">include</span> Hello</span><br><span class="line">  ...</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<p>-W</p>
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-單一表格繼承與多型關聯" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
