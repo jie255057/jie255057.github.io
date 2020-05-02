@@ -13,7 +13,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    Heroku Application error解決 |  沙漠中求生存
+    Rails form_with |  沙漠中求生存
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -38,7 +38,7 @@
   <div id="app">
     <main class="content on">
       <section class="outer">
-  <article id="post-Heroku-Application-error解決" class="article article-type-post" itemscope
+  <article id="post-Rails-form-with" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -46,7 +46,7 @@
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  Heroku Application error解決
+  Rails form_with
 </h1>
  
 
@@ -55,8 +55,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/04/02/Heroku-Application-error%E8%A7%A3%E6%B1%BA/" class="article-date">
-  <time datetime="2020-04-02T07:39:23.000Z" itemprop="datePublished">2020-04-02</time>
+      <a href="/2020/05/02/Rails-form-with/" class="article-date">
+  <time datetime="2020-05-02T10:23:36.000Z" itemprop="datePublished">2020-05-02</time>
 </a>
       
       
@@ -66,7 +66,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字數統計:</span>
-            <span class="post-count">151字</span>
+            <span class="post-count">271字</span>
         </span>
     </span>
 
@@ -86,6 +86,8 @@
 
     
     
+    <div class="tocbot"></div>
+
 
 
 
@@ -98,15 +100,16 @@
       
 
       
-      <p><img src="https://miro.medium.com/max/1400/1*l2kUD9UHZDBqDir9mLqOSQ.png" alt=""><br>因為把第一個專案要推上Heroku，滿心期待第一個作品可以上線，看著其他同學都有畫面，我卻跑這他額娘的Application error畫面，真是讓人難過。</p>
-<p>於是就透過 <code>heroku logs - tail</code> 這段指令，看到了以下畫面</p>
-<p><img src="https://miro.medium.com/max/560/1*lKzMg6p58XUGUeqMoJe9Kw.png" alt=""></p>
-<p>他等待了60秒的PROT，但都沒有收到，後來才發現，因為專案裡的Profile已經寫死了 3000。</p>
-<p><code>web: bin/rails server -p 3000</code></p>
-<p>改成</p>
-<p><code>web: bin/rails server -p $PORT</code></p>
-<p>可能是因為Heroku不能指定PROT的關係。</p>
-<p>如果你的問題也跟我一樣，可以嘗試看看這個方法。</p>
+      <p>有太多的不懂，與記憶有限，很多事情其實遇到了才記得起來，不然講再多都會忘記，沒錯！<br>我就是在說我自己。</p>
+<h2 id="form-with是什麼？"><a href="#form-with是什麼？" class="headerlink" title="form_with是什麼？"></a>form_with是什麼？</h2><p>其實就是Rails在5.1出來後，把<code>form_tag</code>跟<code>form_for</code>做的結合出來。讓開發者更容易使用而已。<br>那好處是不管是要用<code>url</code> or <code>Model</code>能可以製作表單。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;%= form_with <span class="symbol">url:</span> new_user_path <span class="keyword">do</span> <span class="params">|form|</span> %&gt;</span><br><span class="line">  &lt;%= form.text_field <span class="symbol">:email</span> %&gt;</span><br><span class="line">  &lt;%= form.submit %&gt;</span><br><span class="line">&lt;% <span class="keyword">end</span> %&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">or</span></span><br><span class="line"></span><br><span class="line">&lt;%= form_with <span class="symbol">model:</span> @user <span class="keyword">do</span> <span class="params">|form|</span> %&gt;</span><br><span class="line">  &lt;%= form.text_field <span class="symbol">:email</span> %&gt;</span><br><span class="line">  &lt;%= form.submit %&gt;</span><br><span class="line">&lt;% <span class="keyword">end</span> %&gt;</span><br></pre></td></tr></table></figure>
+
+<p>那其實會寫這篇，是因為我想把某些必填欄位，當使用者沒填時，可以把<code>errors.full_message</code>印出來</p>
+<p>但我不管怎樣都印不出來，換成<code>form_for</code>卻可以了。</p>
+<p>那是因為<code>form_with</code>一開始的設定是<code>remote: true</code></p>
+<p><em>有了這個屬性之後，表單會透過 Ajax 提交，而不是瀏覽器平常的提交機制。</em></p>
+<p>所以當新增表單失敗時，他沒有轉址，當然我們的message也跑不出來了</p>
+<p>如果要關掉的話，可以使用 <code>local: true</code></p>
 
       
       <!-- reward -->
@@ -128,19 +131,10 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/04/02/Ruby%E8%A3%A1%E7%9A%84%E5%AD%97%E4%B8%B2%E8%88%87%E7%AC%A6%E8%99%9F-Symbol/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            Ruby裡的字串與符號(Symbol)
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/04/02/Git%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F/" class="article-nav-link">
+      <a href="/2020/04/22/Rails-super-%E8%B5%B7%E9%A3%9B%E6%91%9F/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Git是什麼？</div>
+        <div class="article-nav-title">Rails super 起飛摟</div>
       </a>
     
   </nav>

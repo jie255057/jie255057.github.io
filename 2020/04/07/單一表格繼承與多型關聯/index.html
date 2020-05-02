@@ -100,25 +100,20 @@
       
 
       
-      <h1>我要活下去!!!</h1>
-<p>以前不敢問問題，到現在看到什麼就想問，根本忘了先<em>查資料</em>，再發問。</p>
+      <h1 id="我要活下去"><a href="#我要活下去" class="headerlink" title="我要活下去!!!"></a>我要活下去!!!</h1><p>以前不敢問問題，到現在看到什麼就想問，根本忘了先<em>查資料</em>，再發問。</p>
 <p>問問題前，應該先查資料，再把不了解的濃縮成人話(當然這很難！！！</p>
 <p><strong>難的地方不是發問，而是要很讓人聽懂。</strong></p>
-<p>以下是得到的解答，透過我的大腦，解析出的人話(？<br>
-或許不對，不清楚，再麻煩大家包涵或者直接幹瞧我喔^_&lt;</p>
-<h2 id="單一表格繼承STI-Single-table-inheritance">單一表格繼承STI(Single-table inheritance)</h2>
-<p><strong>如何將物件導向中的繼承概念，對應到關聯式資料庫的設計，是個大哉問。Rails內建了其中最簡單的一個解法，只用一個資料表儲存繼承體系中的物件，搭配一個<code>type</code>欄位用來指名這筆資料的類別名稱。要開啟STI功能，依照慣例只要有一個欄位叫做<code>type</code>，型態字串即可</strong></p>
+<p>以下是得到的解答，透過我的大腦，解析出的人話(？<br>或許不對，不清楚，再麻煩大家包涵或者直接幹瞧我喔^_&lt;</p>
+<h2 id="單一表格繼承STI-Single-table-inheritance"><a href="#單一表格繼承STI-Single-table-inheritance" class="headerlink" title="單一表格繼承STI(Single-table inheritance)"></a>單一表格繼承STI(Single-table inheritance)</h2><p><strong>如何將物件導向中的繼承概念，對應到關聯式資料庫的設計，是個大哉問。Rails內建了其中最簡單的一個解法，只用一個資料表儲存繼承體系中的物件，搭配一個<code>type</code>欄位用來指名這筆資料的類別名稱。要開啟STI功能，依照慣例只要有一個欄位叫做<code>type</code>，型態字串即可</strong></p>
 <p>比方說：我有一個 <code>Animal Model</code>，為了要有繼承功能，我們新增 <code>type</code>這個欄位。</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">change</span></span></span><br><span class="line">  create_table <span class="symbol">:animals</span> <span class="keyword">do</span> <span class="params">|t|</span></span><br><span class="line">    t.string <span class="symbol">:name</span></span><br><span class="line">    t.string <span class="symbol">:type</span></span><br><span class="line">    t.timestamps <span class="symbol">null:</span> <span class="literal">false</span></span><br><span class="line">  <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
 <p>那要被繼承的 Dog、Cat兩個 Model就不用在建立表格欄位了。</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> &lt; ActiveRecord::Base</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> &lt; Animal</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> &lt; Animal</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>這時候他們都繼承了Animal這個爸爸，爸爸有什麼，他們就有什麼了。<br>
-但缺點就是，爸爸有的，你不一定需要，但你還是得擁有那些欄位。<br>
-如果要關閉的話就在爸爸身上加上 <code>self.abstract_class = true</code></p>
-<h2 id="多型關聯-Polymorphic-Associations">多型關聯(Polymorphic Associations)</h2>
-<p><strong>多型關連(Polymorphic Associations)可以讓一個 Model 不一定關連到某一個特定的 Model，秘訣在於除了整數的_id外部鍵之外，再加一個字串的_type欄位說明是哪一種Model。</strong></p>
-<p>多型關聯，當你有某種事情需求，已經有Model在做那件事情時。<br>
-我在其他Model，也想使用到那件事情時，我就不用在另外建立Model，來做一樣的事情了。</p>
+
+<p>這時候他們都繼承了Animal這個爸爸，爸爸有什麼，他們就有什麼了。<br>但缺點就是，爸爸有的，你不一定需要，但你還是得擁有那些欄位。<br>如果要關閉的話就在爸爸身上加上 <code>self.abstract_class = true</code></p>
+<h2 id="多型關聯-Polymorphic-Associations"><a href="#多型關聯-Polymorphic-Associations" class="headerlink" title="多型關聯(Polymorphic Associations)"></a>多型關聯(Polymorphic Associations)</h2><p><strong>多型關連(Polymorphic Associations)可以讓一個 Model 不一定關連到某一個特定的 Model，秘訣在於除了整數的_id外部鍵之外，再加一個字串的_type欄位說明是哪一種Model。</strong></p>
+<p>多型關聯，當你有某種事情需求，已經有Model在做那件事情時。<br>我在其他Model，也想使用到那件事情時，我就不用在另外建立Model，來做一樣的事情了。</p>
 <p><em>以上想用自己的話表達簡單一點，但覺得太攏統，太模糊了</em></p>
 <p><em>以下引用文件</em></p>
 <p>例如一個Comment model，我們可以透過多型關連讓它belongs_to到各種不同的 Model上，假設我們已經有了Article與Photo這兩個Model，然後我們希望這兩個Model都可以被留言。不用多型關連的話，你得分別建立ArticleComment和PhotoComment的model。用多型關連的話，無論有多少種需要被留言的Model，只需要一個Comment model即可：</p>
@@ -131,11 +126,9 @@
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Comment</span> &lt; ApplicationRecord</span></span><br><span class="line">  belongs_to <span class="symbol">:commentable</span>, <span class="symbol">:polymorphic</span> =&gt; <span class="literal">true</span></span><br><span class="line">                          <span class="comment">#透過true來將此關聯指定是多型關聯</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Article</span> &lt; ApplicationRecord</span></span><br><span class="line">  has_many <span class="symbol">:comments</span>, <span class="symbol">:as</span> =&gt; <span class="symbol">:commentable</span></span><br><span class="line">                      <span class="comment">#我們用:as來指定 :commentable這個參數作為多型關聯的接口</span></span><br><span class="line">                      <span class="comment">#:as是什麼？可以看has_one or has_many API</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Photo</span> &lt; ApplicationRecord</span></span><br><span class="line">  has_many <span class="symbol">:comments</span>, <span class="symbol">:as</span> =&gt; <span class="symbol">:commentable</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 <p>接下來可以透過關聯來新增留言</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">article &#x3D; Article.first</span><br><span class="line"></span><br><span class="line">#透過關連新增留言</span><br><span class="line">comment &#x3D; article.comments.create(:content &#x3D;&gt; &quot;First Comment&quot;)</span><br><span class="line"></span><br><span class="line">#你可以發現 Rails 很聰明的幫我們指定了被留言物件的種類和id</span><br><span class="line">comment.commentable_type &#x3D;&gt; &quot;Article&quot;</span><br><span class="line">comment.commentable_id &#x3D;&gt; 1</span><br><span class="line"></span><br><span class="line">#也可以透過 commentable 反向回查關連的物件</span><br><span class="line">comment.commentable &#x3D;&gt; #&lt;Article id: 1, ....&gt;</span><br></pre></td></tr></table></figure>
-<p>簡單來說，我有一個留言的model了，我在文章與照片都想要可以留言，既然已經有model在做這件事了，<br>
-我們就使用多型關聯來連到那裡去。就不用說還需要再另外建立什麼了。</p>
-<p>文章引用參考至：<br>
-<a href="https://ihower.tw/rails/activerecord-relationships.html" target="_blank" rel="noopener">https://ihower.tw/rails/activerecord-relationships.html</a><br>
-<a href="https://ihower.tw/rails/activerecord-others.html" target="_blank" rel="noopener">https://ihower.tw/rails/activerecord-others.html</a></p>
+
+<p>簡單來說，我有一個留言的model了，我在文章與照片都想要可以留言，既然已經有model在做這件事了，<br>我們就使用多型關聯來連到那裡去。就不用說還需要再另外建立什麼了。</p>
+<p>文章引用參考至：<br><a href="https://ihower.tw/rails/activerecord-relationships.html" target="_blank" rel="noopener">https://ihower.tw/rails/activerecord-relationships.html</a><br><a href="https://ihower.tw/rails/activerecord-others.html" target="_blank" rel="noopener">https://ihower.tw/rails/activerecord-others.html</a></p>
 <p>-W</p>
 
       
