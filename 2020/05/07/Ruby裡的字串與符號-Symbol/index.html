@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    Ruby裡的字串與符號-Symbol | 我誰～～～
+  </title>
+  <meta name="description" content="什麼都想學啦">
+  
+  <meta name="keywords" content="
+  
+  ">
+  
+  <meta name="author" content="Willy Chang">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
+
+  <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://octodex.github.com/images/baracktocat.jpg"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives"
+           class="header-toolbar-right"> 9 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/tags"
+           class="header-toolbar-right"> 0 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories"
+           class="header-toolbar-right"> 0 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">我誰～～～</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    Willy Chang
+
+    <span class="post-date float-right" title="{{moment(1588784648000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      
+          <i class="fa fa-pencil-square-o"></i>
+      
+      {{moment(1588784648000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>Ruby裡的字串與符號-Symbol</h1>
+    <p>淺談在Ruby裡的字串與符號，首先我們先看看字串的樣字</p>
+<p>字串物件的組合是由<br><img src="https://miro.medium.com/max/988/1*Zsq3bUJJq3Vb5u2yZ1BRjA.png" alt=""><br>一個變數來指向字串物件，來形成字串物件，如果沒有指向字串這個名字(name)變數，則無法成立單獨身存。因為它是空的，沒有代表任何物件。也可以稱為String物件。</p>
+<p>再來看看 Symbol<br><img src="https://miro.medium.com/max/1004/1*MoyMzPZYE1DCIYlc3ZCTsw.png" alt=""><br>一樣是由一個變數來指向 :name ，但這時候就不是字串物件了，而變成符號(Symbol)。</p>
+<p>那字串與符號的不同呢？</p>
+<p>字串是可以更改內容的，而符號_(Symbol)_是不能的!!! (以下就直接通稱符號</p>
+<p>因為這時候符號已經變成了有名字的字串了。</p>
+<p>就像你的名字可以更改嗎？好啦其實可以，去戶政事務所。</p>
+<p>舉例看看：好比今天棒球的本壘板，它已經定義叫做本壘板了，不可能更改叫一壘或二壘吧。</p>
+<p>我們也可以用.class來看這時候變數是什麼個物件類別。<br><img src="https://miro.medium.com/max/1400/1*uxSej6MER94aPyjNWOPS-g.png" alt=""><br><img src="https://miro.medium.com/max/1400/1*jDtsL5xdlQxJ4zgtyo4Rxw.png" alt=""><br>符號類別字串物件類別可以看得出來他們的類別不一樣吧 😃</p>
+<p>當然它們也有別的不同之處，物件的ID位置(身分證字號)，我們可以用</p>
+<p>.object_id 來查詢它們所在的ID位置。<br><img src="https://miro.medium.com/max/1400/1*SSlfrvyi36iAQChyn_eXtA.png" alt=""><br>有看到右邊一串一串的亂碼嗎？那就是willy這個字串的ID位置，每次輸入每次的位置不同，因為每次查詢都會在建立一個新字串，才會有不同的ID位置。<br><img src="https://miro.medium.com/max/1400/1*mTY9-ECbZ5VMezHX21rOLw.png" alt=""><br>但符號的ID位置是不會改變的，因為ID位置如果相同的話，表示它們都是同一個物件，這樣下次需要這個符號時，記憶體就不用在新增一份，直接從記憶體取出，相對的符號也較省記憶體空間。</p>
+<p>字串及 符號(Symbol) 類別都有提供一些方法可以互相轉換，</p>
+<p>我們可以用:</p>
+<p>字串轉符號使用:to_sym</p>
+<p>符號轉字串使用:to_s</p>
+<p>那我們的使用時機呢？可以用在Hash裡的key:</p>
+<p>因為它能更快的被找到。</p>
+<p>總結：</p>
+<p>字串與符號同樣是一個物件，但類別不同，使用方法也不同。</p>
+<p>但我覺得符號的用途比較像是更明確的表現物件給人的意思，</p>
+<p>因為它的內容是不可以改變的！！！</p>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="http://www.willychang.com" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2019 Willy Chang</li>
+      <li><a href="http://www.willychang.com">Home</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a href="//github.com/sabrinaluo/hexo-theme-replica" target="_blank" rel="noopener">Replica</a>
+      by <a href="//github.com/sabrinaluo" target="_blank" rel="noopener">Hiitea</a> ❤ Powered by Hexo
+    </div>
+    </div>
+    
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

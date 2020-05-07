@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    類別是什麼？物件是什麼？ | 我誰～～～
+  </title>
+  <meta name="description" content="什麼都想學啦">
+  
+  <meta name="keywords" content="
+  
+  ">
+  
+  <meta name="author" content="Willy Chang">
+
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
+
+  <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/archives">Archives</a></li>
+        
+        
+        <li><a href="/categories">Categories</a></li>
+        
+        
+        <li><a href="/tags">Tags</a></li>
+        
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://octodex.github.com/images/baracktocat.jpg"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/archives" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/archives"
+           class="header-toolbar-right"> 9 </a>
+      </li>
+      <li>
+        <a href="/tags" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/tags"
+           class="header-toolbar-right"> 0 </a>
+      </li>
+      <li>
+        <a href="/categories" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/categories"
+           class="header-toolbar-right"> 0 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">我誰～～～</a>
+      
+      
+    </h2>
+  </div>
+
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
+
+
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    Willy Chang
+
+    <span class="post-date float-right" title="{{moment(1588784712000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      
+          <i class="fa fa-pencil-square-o"></i>
+      
+      {{moment(1588784712000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>類別是什麼？物件是什麼？</h1>
+    <p>既然是物件導向程式設計，那物件是什麼？<br>其實我覺得應該先搞懂這個。<br>趁著清明連假，先了解一些基礎，不然很多基礎搞不懂，根本只是個會寫code的人，因為我不懂它運作的原理。</p>
+<p>類別：一張設計圖，藍圖，可以參考的文件，沒有實體的存在。<br><em>但在Ruby的世界裡，類別也是一個物件。</em><br>物件：看得到、摸得到的實體，屬於動態，但狀態隨時會改變。</p>
+<p>在Ruby裡如何定義一個類別呢？</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+</pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span></span></span>
+<span class="line">  <span class="comment">#...</span></span>
+<span class="line"><span class="keyword">end</span></span>
+</pre></td></tr></table></figure>
+
+<p>這樣我們就定義了Cat 這個class(類別)<br>當然裡面可以定義很多methods(方法)</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+</pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span></span></span>
+<span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">eat</span><span class="params">(food)</span></span></span>
+<span class="line">    puts <span class="string">"<span class="subst">#&#123;food&#125;</span> 好好吃！"</span></span>
+<span class="line">  <span class="keyword">end</span></span>
+<span class="line"><span class="keyword">end</span></span>
+</pre></td></tr></table></figure>
+
+<p>我們先定義一個 <code>eat</code> 這個方法。<br>接下來用 <code>new</code>方法來把 Cat類別創造出新的物件。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+</pre></td><td class="code"><pre><span class="line">willy = Cat.new</span>
+<span class="line">willy.eat(<span class="string">"罐頭"</span>) =&gt; 印出 [罐頭 好好吃!]</span>
+</pre></td></tr></table></figure>
+
+<p>簡單來說，為什麼說類別是一張設計圖？<br>比方要蓋一棟房子，首先需要一張設計圖(類別)<br>那你要透過<code>new</code>出設計圖的房子(物件)<br>透過這樣簡單的的比喻，就可以把類別與物件分得比較清楚。</p>
+<p>可能比喻的不是很好，再麻煩大家給我一些指教。</p>
+<p>-W</p>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="http://www.willychang.com" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2019 Willy Chang</li>
+      <li><a href="http://www.willychang.com">Home</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a href="//github.com/sabrinaluo/hexo-theme-replica" target="_blank" rel="noopener">Replica</a>
+      by <a href="//github.com/sabrinaluo" target="_blank" rel="noopener">Hiitea</a> ❤ Powered by Hexo
+    </div>
+    </div>
+    
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>
