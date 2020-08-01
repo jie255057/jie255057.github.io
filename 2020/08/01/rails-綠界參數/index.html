@@ -8,7 +8,7 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>
-    類別是什麼？物件是什麼？ | 我誰～～～
+    Rails 綠界參數 | 我誰～～～
   </title>
   <meta name="description" content="什麼都想學啦">
   
@@ -124,50 +124,24 @@
     <i class="fa fa-user-o"></i>
     Willy Chang
 
-    <span class="post-date float-right" title="{{moment(1588784712000).format('MMM DD, YYYY, h:mm:ss A')}}">
+    <span class="post-date float-right" title="{{moment(1596266441000).format('MMM DD, YYYY, h:mm:ss A')}}">
       
           <i class="fa fa-pencil-square-o"></i>
       
-      {{moment(1588784712000).fromNow()}}
+      {{moment(1596266441000).fromNow()}}
     </span>
   </h3>
 
   <article class="post-content">
-    <h1>類別是什麼？物件是什麼？</h1>
-    <p>既然是物件導向程式設計，那物件是什麼？<br>其實我覺得應該先搞懂這個。<br>趁著清明連假，先了解一些基礎，不然很多基礎搞不懂，根本只是個會寫code的人，因為我不懂它運作的原理。</p>
-<p>類別：一張設計圖，藍圖，可以參考的文件，沒有實體的存在。<br><em>但在Ruby的世界裡，類別也是一個物件。</em><br>物件：看得到、摸得到的實體，屬於動態，但狀態隨時會改變。</p>
-<p>在Ruby裡如何定義一個類別呢？</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-</pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span></span></span>
-<span class="line">  <span class="comment">#...</span></span>
-<span class="line"><span class="keyword">end</span></span>
-</pre></td></tr></table></figure>
+    <h1>Rails 綠界參數</h1>
+    <p>因為自己負責的專案，所以有碰到綠界金物流，在實際操作下，才知道大家口中說到底有奪*了。</p>
+<p>雖然都有api，但有時候卻寫的不是很明確，導致不管怎麼送，都失敗。</p>
+<p>因為參數，有寫說要帶什麼格式，但卻沒說沒帶時需要給什麼！</p>
+<h1 id="空值！！！-也就是空字串就可以了！！！-‘’"><a href="#空值！！！-也就是空字串就可以了！！！-‘’" class="headerlink" title="空值！！！ 也就是空字串就可以了！！！ ‘’"></a>空值！！！ 也就是空字串就可以了！！！ ‘’</h1><p>比方說: ScheduledDeliveryDate #指定到貨日<br>買家可能會想指定到貨日或者不指定。</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">scheduled_delivery_date</span></span></span><br><span class="line">  bill_address.arrival_date.presence <span class="params">||</span> <span class="string">''</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
 
-<p>這樣我們就定義了Cat 這個class(類別)<br>當然裡面可以定義很多methods(方法)</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-<span class="line">3</span>
-<span class="line">4</span>
-<span class="line">5</span>
-</pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span></span></span>
-<span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">eat</span><span class="params">(food)</span></span></span>
-<span class="line">    puts <span class="string">"<span class="subst">#&#123;food&#125;</span> 好好吃！"</span></span>
-<span class="line">  <span class="keyword">end</span></span>
-<span class="line"><span class="keyword">end</span></span>
-</pre></td></tr></table></figure>
-
-<p>我們先定義一個 <code>eat</code> 這個方法。<br>接下來用 <code>new</code>方法來把 Cat類別創造出新的物件。</p>
-<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span>
-<span class="line">2</span>
-</pre></td><td class="code"><pre><span class="line">willy = Cat.new</span>
-<span class="line">willy.eat(<span class="string">"罐頭"</span>) =&gt; 印出 [罐頭 好好吃!]</span>
-</pre></td></tr></table></figure>
-
-<p>簡單來說，為什麼說類別是一張設計圖？<br>比方要蓋一棟房子，首先需要一張設計圖(類別)<br>那你要透過<code>new</code>出設計圖的房子(物件)<br>透過這樣簡單的的比喻，就可以把類別與物件分得比較清楚。</p>
-<p>可能比喻的不是很好，再麻煩大家給我一些指教。</p>
-<p>-W</p>
+<p>那其實在try了很多次之下，還有寫信去問。<br>才知道可以傳帶空字串即可。</p>
+<p>那我們通常會用 <code>present</code> 方法，再用三元運算，<br>那這邊可以使用 <code>presence</code>，雖然是做一樣的事情，但可以少寫幾個字。<br><code>presence</code>會自己檢查本身是否存在，如果存在，就會回傳自己，<br>假使不存在，則回傳|| <code>&#39;&#39;</code>回去。</p>
 
   </article>
 </div>

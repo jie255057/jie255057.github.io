@@ -8,13 +8,9 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>
-    Heroku-Application-error解決 | 我誰～～～
+    我誰～～～
   </title>
   <meta name="description" content="什麼都想學啦">
-  
-  <meta name="keywords" content="
-  
-  ">
   
   <meta name="author" content="Willy Chang">
 
@@ -77,81 +73,115 @@
 </nav>
 
 <div class="main-container">
-  <header class="header-wrapper desktop-only">
-  <div class="container header-site-detail">
-    <ul class="header-toolbar">
-      <li class="clearfix">
-        <a href="/archives" class="header-toolbar-left"><i
-                  class="fa fa-file-text"></i> Posts </a>
-        <a href="/archives"
-           class="header-toolbar-right"> 9 </a>
-      </li>
-      <li>
-        <a href="/tags" class="header-toolbar-left"><i
-                  class="fa fa-tags"></i> Tags </a>
-        <a href="/tags"
-           class="header-toolbar-right"> 0 </a>
-      </li>
-      <li>
-        <a href="/categories" class="header-toolbar-left"><i
-                  class="fa fa-folder-open"></i> Categories </a>
-        <a href="/categories"
-           class="header-toolbar-right"> 0 </a>
-      </li>
-    </ul>
-    <h2 class="header-title">
-      <i class="fa fa-book text-muted"></i>
-      <a href="/">我誰～～～</a>
-      
-      
-    </h2>
-  </div>
+  
 
-  <div class="container">
-    <div class="header-tab-wrapper clearfix">
-      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
-      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
-      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
-      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
-      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+<div class="container-lg">
+  
+
+<div class="blog-intro">
+  <div class="blog-intro-user">
+    <img class="avatar" src="https://octodex.github.com/images/baracktocat.jpg">
+    <div class="user-name">
+      <div class="blog-title">我誰～～～</div>
+      <div class="blog-author">Willy Chang</div>
+        <ul class="user-detail mobile-only">
+    
+    <li>
+      <i class="fa fa-map-marker"></i>
+      Taiwan, Taipei
+    </li>
+    
+    <li>
+      <i class="fa fa-envelope-o"></i>
+      <a href="mailto:jie255057@gmail.com">jie255057@gmail.com</a>
+    </li>
+    
+    <li>
+      <i class="fa fa-link"></i>
+      <a href="http://www.willychang.com">http://www.willychang.com</a>
+    </li>
+  </ul>
+    </div>
+    <div class="blog-description">
+      什麼都想學啦
     </div>
   </div>
-</header>
 
+  <ul class="user-detail desktop-only">
+    
+    <li>
+      <i class="fa fa-map-marker"></i>
+      Taiwan, Taipei
+    </li>
+    
+    <li>
+      <i class="fa fa-envelope-o"></i>
+      <a href="mailto:jie255057@gmail.com">jie255057@gmail.com</a>
+    </li>
+    
+    <li>
+      <i class="fa fa-link"></i>
+      <a href="http://www.willychang.com">http://www.willychang.com</a>
+    </li>
+  </ul>
 
-<div class="post-container container">
-  <h3>
-    <i class="fa fa-user-o"></i>
-    Willy Chang
-
-    <span class="post-date float-right" title="{{moment(1588784471000).format('MMM DD, YYYY, h:mm:ss A')}}">
+  <div class="social-media desktop-only">
+    <h4>Social Media</h4>
+    <ul>
       
-          <i class="fa fa-pencil-square-o"></i>
+      <li class="social-media-item"><a href="https://github.com/jie255057" target="_blank"><i class="fa fa-github"></i></a></li>
       
-      {{moment(1588784471000).fromNow()}}
-    </span>
-  </h3>
-
-  <article class="post-content">
-    <h1>Heroku-Application-error解決</h1>
-    <p><img src="https://miro.medium.com/max/1400/1*l2kUD9UHZDBqDir9mLqOSQ.png" alt=""><br>因為把第一個專案要推上Heroku，滿心期待第一個作品可以上線，看著其他同學都有畫面，我卻跑這他額娘的Application error畫面，真是讓人難過。</p>
-<p>於是就透過 <code>heroku logs - tail</code> 這段指令，看到了以下畫面</p>
-<p><img src="https://miro.medium.com/max/560/1*lKzMg6p58XUGUeqMoJe9Kw.png" alt=""></p>
-<p>他等待了60秒的PROT，但都沒有收到，後來才發現，因為專案裡的Profile已經寫死了 3000。</p>
-<p><code>web: bin/rails server -p 3000</code></p>
-<p>改成</p>
-<p><code>web: bin/rails server -p $PORT</code></p>
-<p>可能是因為Heroku不能指定PROT的關係。</p>
-<p>如果你的問題也跟我一樣，可以嘗試看看這個方法。</p>
-
-  </article>
+    </ul>
+  </div>
 </div>
 
 
+  <div class="blog-detail">
     
+<nav class="blog-detail-nav desktop-only">
+  <ul class="clearfix">
+    <li class="">
+      <a href="/">Overview</a></li>
+    <li class="selected">
+      <a href="/archives">Posts <span class="counter">9</span></a>
+    </li>
+    <li class="">
+      <a href="/categories">Categories <span
+                class="counter">0</span></a></li>
+    <li class="">
+      <a href="/tags">Tags <span class="counter">0</span></a></li>
+  </ul>
+</nav>
 
-
-
+    <div class="body-secondary">
+      <ul class="archive-list">
+        
+        <li class="archive-list-item">
+          <h2><a href="/2020/08/01/rails-%E7%B6%A0%E7%95%8C%E5%8F%83%E6%95%B8/">Rails 綠界參數</a></h2>
+          <p>
+             因為自己負責的專案，所以有碰到綠界金物流，在實際操作下，才知道大家口中說到底有奪*了。 
+ 雖然都有api，但有時候卻寫的不是很明確，導致不管怎麼送，都失敗。 
+ 因為參數，有寫說要帶什麼格式，但卻沒說沒帶時需要給什麼！ 
+   空值！！！ 也就是空字串就可以了！！！ ‘’  比方說: Sched...
+          </p>
+          <ul class="tag-list clearfix">
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <i class="fa fa-folder-open"></i> Uncategorized
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 0 </span>
+            <span>Published {{moment(1596266441000).fromNow()}}</span>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
 
 </div>
 
