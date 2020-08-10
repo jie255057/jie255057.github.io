@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.willychang.com/"/>
-  <updated>2020-08-01T07:34:49.154Z</updated>
+  <updated>2020-08-10T15:09:52.533Z</updated>
   <id>http://www.willychang.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Jquery siblings method</title>
+    <link href="http://www.willychang.com/2020/08/10/Jquery-siblings-method/"/>
+    <id>http://www.willychang.com/2020/08/10/Jquery-siblings-method/</id>
+    <published>2020-08-10T14:47:44.000Z</published>
+    <updated>2020-08-10T15:09:52.533Z</updated>
+    
+    <content type="html"><![CDATA[<p>雖然 <code>Jquery</code>在現今來說很野蠻，但今天不管它野不野蠻。</p><p>因為專案的關西，前端也會碰到(可以趁機練習)，今天透過<code>ajax</code>來說看看。</p><p>有時候我們需要透過js來尋找我們要的元素。<br>但當我們在迴圈印出資料時，每個<code>class</code>, <code>id</code> 名稱皆會相同。<br>所以我們可以透過<code>this</code>先拿到當下的元素。<br>在透過 <code>siblings()</code>來尋找同層級的元素。</p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以下為erb，僅擷取部分</span></span><br><span class="line"></span><br><span class="line">&lt;% @orders.each <span class="keyword">do</span> <span class="params">|order|</span> %&gt;</span><br><span class="line">  &lt;td&gt;&lt;%= link_to order.number, edit_admin_order_path(order) %&gt;&lt;br&gt;</span><br><span class="line">      &lt;%= hidden_field_tag order.shipments_number %&gt;</span><br><span class="line">      &lt;input type="text" class="track-val" value="&lt;%= order.track_number %&gt;" style="width:50%;" disabled="true"&gt;</span><br><span class="line">      &lt;%= link_to <span class="string">'edit'</span>, <span class="string">'編輯'</span>, <span class="string">'#'</span>, <span class="class"><span class="keyword">class</span>: '<span class="title">edit</span>-<span class="title">tracking</span> <span class="title">btn</span> <span class="title">btn</span>-<span class="title">primary</span> <span class="title">btn</span>-<span class="title">sm</span>' %&gt;</span></span><br><span class="line"></span><br><span class="line">      &lt;%= link_to <span class="string">'save'</span>, <span class="string">'儲存'</span>, <span class="string">'#'</span>, <span class="class"><span class="keyword">class</span>: '<span class="title">save</span>-<span class="title">tracking</span> <span class="title">btn</span> <span class="title">btn</span>-<span class="title">success</span> <span class="title">btn</span>-<span class="title">sm</span> <span class="title">track_btn</span>', <span class="title">no_text</span>: <span class="title">true</span> %&gt;</span></span><br><span class="line">  &lt;<span class="regexp">/td&gt;</span></span><br><span class="line"><span class="regexp">&lt;% end %&gt;</span></span><br></pre></td></tr></table></figure><p>我想透過在下儲存link的時候透過<code>ajax</code>打到後端做更新。<br>但首先我需要在畫面上拿到元素。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以下為 Jquery</span></span><br><span class="line"></span><br><span class="line">$(<span class="string">'.track_btn'</span>).on(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> trackNumber = $(<span class="keyword">this</span>).siblings(<span class="string">'.track-val'</span>).val(); <span class="comment">// 我先透過 siblings 方法拿到同層級 .track-val 的val</span></span><br><span class="line">  <span class="keyword">var</span> shipmentNumber = $(<span class="keyword">this</span>).siblings(<span class="string">'input[type=hidden]'</span>).attr(<span class="string">'id'</span>); <span class="comment">// 在一樣透過 siblings 拿到隱藏input的值</span></span><br><span class="line">  $.ajax(&#123;</span><br><span class="line">    type: <span class="string">'PUT'</span>,</span><br><span class="line">    url: <span class="string">'/api/v1/shipments/'</span> + shipmentNumber + <span class="string">'.json'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">      type: <span class="string">'JSON'</span>,</span><br><span class="line">      token: Api.api_key,</span><br><span class="line">      shipment: &#123; <span class="attr">tracking</span>: trackNumber &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  $(<span class="keyword">this</span>).siblings(<span class="string">'.track-val'</span>).attr(<span class="string">'disabled'</span>, <span class="literal">true</span>)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>透過這種可以拿到附近元素的方法，方便很多。</p><p>以上為不負責心得</p><p><a href="https://api.jquery.com/siblings/" target="_blank" rel="noopener" title="Title">siblings method說明</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;雖然 &lt;code&gt;Jquery&lt;/code&gt;在現今來說很野蠻，但今天不管它野不野蠻。&lt;/p&gt;
+&lt;p&gt;因為專案的關西，前端也會碰到(可以趁機練習)，今天透過&lt;code&gt;ajax&lt;/code&gt;來說看看。&lt;/p&gt;
+&lt;p&gt;有時候我們需要透過js來尋找我們要的元素。&lt;br&gt;但當我們在
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Rails 綠界參數</title>
