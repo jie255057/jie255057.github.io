@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.willychang.com/2020/09/03/Rails-Capybara/</loc>
+    
+    <lastmod>2020-09-03T08:56:37.955Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.willychang.com/2020/08/10/Jquery-siblings-method/</loc>
     
     <lastmod>2020-08-10T15:09:52.533Z</lastmod>
