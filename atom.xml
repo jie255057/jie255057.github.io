@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.willychang.com/"/>
-  <updated>2020-09-03T08:56:37.955Z</updated>
+  <updated>2020-09-06T05:51:39.227Z</updated>
   <id>http://www.willychang.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ruby on Rails Hash and HashWithIndifferentAccess</title>
+    <link href="http://www.willychang.com/2020/09/06/Ruby-on-Rails-Hash-and-HashWithIndifferentAccess/"/>
+    <id>http://www.willychang.com/2020/09/06/Ruby-on-Rails-Hash-and-HashWithIndifferentAccess/</id>
+    <published>2020-09-06T05:43:17.000Z</published>
+    <updated>2020-09-06T05:51:39.227Z</updated>
+    
+    <content type="html"><![CDATA[<p>有時候我們在 <code>Hash</code> 中要拿取 :key 時, 我們可能會用 <code>sample</code> or <code>string</code><br>但我們用 <code>string</code> 卻會拿到 <code>nil</code></p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = &#123; <span class="symbol">a:</span> <span class="number">123</span> &#125;</span><br><span class="line">a[<span class="symbol">:a</span>] -&gt; <span class="number">123</span></span><br><span class="line">a[<span class="string">'a'</span>] -&gt; <span class="literal">nil</span></span><br></pre></td></tr></table></figure><p>但為什麼在 <code>Rails</code> 的時候卻可以？<br>因為 <code>Rails</code> 的 ActiveSupport::HashWithIndifferentAccess 幫了大忙<br>讓開發者可以同時使用 <code>sample</code> 跟 <code>string</code> 來拿取 :key。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;有時候我們在 &lt;code&gt;Hash&lt;/code&gt; 中要拿取 :key 時, 我們可能會用 &lt;code&gt;sample&lt;/code&gt; or &lt;code&gt;string&lt;/code&gt;&lt;br&gt;但我們用 &lt;code&gt;string&lt;/code&gt; 卻會拿到 &lt;code&gt;nil&lt;/code&gt;
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Rails Capybara</title>

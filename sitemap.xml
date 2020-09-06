@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.willychang.com/2020/09/06/Ruby-on-Rails-Hash-and-HashWithIndifferentAccess/</loc>
+    
+    <lastmod>2020-09-06T05:51:39.227Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.willychang.com/2020/09/03/Rails-Capybara/</loc>
     
     <lastmod>2020-09-03T08:56:37.955Z</lastmod>
