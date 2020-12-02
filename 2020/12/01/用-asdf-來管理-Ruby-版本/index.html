@@ -21,7 +21,9 @@
 
 <p>但每個專案下使用的版本都不一樣<br>所以也必須告訴 <code>asdf</code>要使用哪個版本<br>那就必須在專案目錄底下新增 <code>.tool-versions</code><br>在裡面設定版本<br>設定好後可以輸入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">asdf current</span><br><span class="line">#可以看到</span><br><span class="line">ruby 2.5.7 (set by &#x2F;Users&#x2F;willychang&#x2F;Documents&#x2F;oakda&#x2F;kakao-spree&#x2F;.tool-versions)</span><br></pre></td></tr></table></figure>
-<p>或是在專案目錄底下新增 <code>.asdfrc</code></p>
+<p>或是在專案目錄底下新增 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">touch .asdfrc</span><br><span class="line"></span><br><span class="line">#輸入</span><br><span class="line">legacy_version_file &#x3D; yes</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">asdf current</span><br><span class="line">#這時候他會去找 .ruby-versions 裡面的版本</span><br><span class="line">ruby 2.5.7 (set by &#x2F;Users&#x2F;willychang&#x2F;Documents&#x2F;oakda&#x2F;kakao-spree&#x2F;.ruby-versions)</span><br></pre></td></tr></table></figure>
 
 <p>但有時候在每個專案下已經指定版本了，也有以後的兩個檔案<br>但還是會出現</p>
